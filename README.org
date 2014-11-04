@@ -1,0 +1,20 @@
+** 启动项目
+启动 gamer-server 服务器：
+#+begin_src
+$ cd game-server
+$ pomelo start
+#+end_src
+启动 web-server 服务器：
+#+begin_src
+$ cd web-server
+$ node app
+#+end_src
+** 查看服务器
+可以使用 =pomelo list= 查看已经启动的服务器。
+
+服务器状态可以查看5种状态信息：
+- serverId：服务器的serverId，同config配置表中的id。
+- serverType：服务器的serverType，同config配置表中的type。
+- pid：服务器对应的进程pid。
+- headUsed：该服务器已经使用的堆大小（单位：兆）。
+- uptime：该服务器启动时长（单位：分钟）。
