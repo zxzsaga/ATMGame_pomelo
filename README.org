@@ -9,6 +9,20 @@ $ pomelo start
 $ cd web-server
 $ node app
 #+end_src
+
+** 关闭项目
+可以使用一下两种方式关闭项目：
+#+begin_src
+$ cd game-server
+$ pomelo stop
+#+end_src
+或者
+#+begin_src
+$ cd game-server
+$ pomelo kill
+#+end_src
+明显推荐前者
+
 ** 查看服务器
 可以使用 =pomelo list= 查看已经启动的服务器。
 
