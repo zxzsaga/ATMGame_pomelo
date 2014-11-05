@@ -5,6 +5,7 @@ $(document).ready(function() {
         var usr = $('#usr').val();
         var pwd = $('#pwd').val();
         queryEntry(usr, function(host, port) {
+            var route = 'connector.entryHandler.entry';
             pomelo.init(
                 {
                     host: host,
@@ -12,13 +13,18 @@ $(document).ready(function() {
                     log: true
                 },
                 function() {
-                    var route = 'connector.entryHandler.enter';
-                    /*
                     pomelo.request(
                         route,
-                        {  }
+                        {},
+                        function(data) {
+                            pomelo.disconnect();
+                            if (data.code === 500) {
+                                alert('errorCode: ' + 500);
+                                return;
+                            }
+                            console.log(data.msg);
+                        }
                     );
-                    */
                 }
             );
         });
@@ -27,7 +33,6 @@ $(document).ready(function() {
 
 function queryEntry(uid, cb) {
     var route = 'gate.gateHandler.queryEntry';
-    console.log(pomelo);
     pomelo.init(
         {
             host: window.location.hostname,
@@ -35,17 +40,15 @@ function queryEntry(uid, cb) {
             log: true
         },
         function() {
-            consol.log('lalala');
             pomelo.request(
                 route,
                 { uid: uid },
                 function(data) {
-                    pomelo.disconnet();
+                    pomelo.disconnect();
                     if (data.code === 500) {
                         alert('errorCode: ' + 500);
                         return;
                     }
-                    console.log(data);
                     cb(data.host, data.port);
                 }
             )
