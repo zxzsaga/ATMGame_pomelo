@@ -1,6 +1,9 @@
 var pomelo = require('pomelo');
 var app = pomelo.createApp();
 
+var _ = require('underscore');
+var mongodb = require('mongodb');
+
 app.set('name', 'ATMGame');
 
 // app configuration
