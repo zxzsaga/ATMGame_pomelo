@@ -24,7 +24,7 @@ app.configure('production', function(){
     app.use(express.errorHandler());
 });
 
-console.log("Web server has started.\nPlease log on http://127.0.0.1:3001/index.html");
+console.log("Web server has started.\nPlease log on http://127.0.0.1:3001");
 
 app.listen(3001);
 
@@ -36,6 +36,10 @@ app.get('/', function(req, res) {
     } else {
         res.redirect('/login');
     }
+});
+
+app.get('/index', function(req, res) {
+    res.render('index');
 });
 
 app.get('/login', function(req, res) {

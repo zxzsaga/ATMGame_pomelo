@@ -4,25 +4,29 @@ html
     title ATM Game
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='css/bootstrap.min.css')
+    script(type='text/javascript', src='js/lib/jquery-1.8.0.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='js/lib/build/build.js')
+    script(type='text/javascript').
+      require('boot');
+    script(type='text/javascript', src='js/login.js')
   body
     .container(style='text-align:center; padding-top: 50px;')
       h1 Welcome ~
       h1 This is ATM Game Platform
       br
       .row
-        form.form-horizontal.col-lg-4.col-lg-offset-4(action='/login', method='POST', role='form')
+        .form-horizontal.col-lg-4.col-lg-offset-4
           .form-group
             .col-lg-12
-              input.form-control.input-lg(name='username', type='text', id='username', placeholder='Username')
+              input.form-control.input-lg(type='text', id='usr', placeholder='Username')
           .form-group
             .col-lg-12
-              input.form-control.input-lg(name='password', type='password', id='password', placeholder='Password')
+              input.form-control.input-lg(type='password', id='pwd', placeholder='Password')
           if error
             .form-group
               .col-lg-8.col-lg-offset-2.alert.alert-danger
                 p #{ error }
           .form-group
-            input.col-lg-4.col-lg-offset-1.btn.btn-lg.btn-default(type='submit', value='Login')
+            input#btn-login.col-lg-4.col-lg-offset-1.btn.btn-lg.btn-default(type='button', value='login')
             a.col-lg-4.col-lg-offset-2.btn.btn-lg.btn-default(href='/register') Register
-    script(src='js/jquery.min.js')
-    script(src='js/bootstrap.min.js')
