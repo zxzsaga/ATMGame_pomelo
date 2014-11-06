@@ -1,0 +1,23 @@
+extend layout
+block head
+  script(type='text/javascript', src='js/login.js')
+block body
+  .container(style='text-align:center; padding-top: 50px;')
+    h1 Welcome ~
+    h1 This is ATM Game Platform
+    br
+    .row
+      .form-horizontal.col-lg-4.col-lg-offset-4
+        .form-group
+          .col-lg-12
+            input.form-control.input-lg(type='text', id='usr', placeholder='Username')
+        .form-group
+          .col-lg-12
+            input.form-control.input-lg(type='password', id='pwd', placeholder='Password')
+        if error
+          .form-group
+            .col-lg-8.col-lg-offset-2.alert.alert-danger
+              p #{ error }
+        .form-group
+          input#btn-login.col-lg-4.col-lg-offset-1.btn.btn-lg.btn-default(type='button', value='login')
+          a.col-lg-4.col-lg-offset-2.btn.btn-lg.btn-default(href='/register') Register

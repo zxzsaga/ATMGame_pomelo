@@ -2,7 +2,7 @@ var pomelo = require('pomelo');
 var app = pomelo.createApp();
 
 var _ = require('underscore');
-var mongodb = require('mongodb');
+var MongoClient = require('mongodb').MongoClient;
 
 app.set('name', 'ATMGame');
 
@@ -29,8 +29,11 @@ app.configure('production|development', 'gate', function() {
     );
 });
 
-// start app
-app.start();
+MongoClient.connect(db, appStart());
+function appStart() {
+    // start app
+    app.start();
+}
 
 process.on('uncaughtException', function (err) {
     console.error(' Caught exception: ' + err.stack);
