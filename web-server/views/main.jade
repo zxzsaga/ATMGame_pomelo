@@ -1,0 +1,25 @@
+extends layout
+block head
+  include pomelo-head
+  script(type='text/javascript', src='js/chat.js')
+block body
+  .container(style='text-align:center; padding-top: 50px;')
+    .row
+      .col-lg-3
+        h1 #{ username }
+        .row
+          .col-lg-12
+            pre.chat-frame(style='text-align: left; height: 400px')
+            form.form-inline(role='form')
+              .form-group
+                input#chat-msg.form-control(type='text', placeholder='说点什么吧 ~')
+              button#send-msg-btn.btn.btn-default(type='button') 发送
+      .col-lg-9
+        .row
+//          .col-lg-3
+//            .thumbnail
+//              a(href='http://218.244.133.160:8001')
+//                img(src="/img/amaze.png", alt="amaze")
+//              .caption
+//                h3 Amaze
+//                p 一个人走迷宫，鬼捉人的游戏。

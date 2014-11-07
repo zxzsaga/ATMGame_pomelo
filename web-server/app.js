@@ -5,30 +5,38 @@ var util = require('util');
 // third part modules
 var _ = require('underscore');
 var MongoClient = require('mongodb').MongoClient;
+
+// express relative
 var express = require('express');
-var app = express.createServer();
+var methodOverride = require('method-override');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var errorHandler = require('errorhandler');
+
+var app = express();
 
 // app configure
-app.configure(function(){
-    app.use(express.methodOverride());
-    app.use(express.cookieParser('secret'));
-    app.use(express.session());
-    app.use(express.bodyParser());
-    app.use(app.router);
-    app.set('view engine', 'jade');
-    app.set('views', __dirname + '/public');
-    app.set('view options', {layout: false});
-    app.set('basepath',__dirname + '/public');
-});
-app.configure('development', function(){
-    app.use(express.static(__dirname + '/public'));
-    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-app.configure('production', function(){
+app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(cookieParser('secret'));
+app.use(session({ secret: 'keyboard cat' }));
+app.use(bodyParser());
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+app.set('view options', {layout: false});
+app.set('basepath',__dirname + '/public');
+
+var env = process.env.NODE_ENV || 'development';
+if (env === 'production') {
     var oneYear = 31557600000;
     app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
-    app.use(express.errorHandler());
-});
+    app.use(errorHandler());
+} else if (env === 'development') {
+    app.use(express.static(__dirname + '/public'));
+    app.use(errorHandler({ dumpExceptions: true, showStack: true })); 
+} else {
+    throw new Error('Unrecognized Environment');
+}
 
 // set modules global
 global.util = util;
@@ -63,8 +71,8 @@ function appListen() {
 // routers
 // get
 app.get('/', function(req, res) {
-    if (req.cookie.accessId) {
-        res.render('main');
+    if (req.cookies.accessId) {
+        res.render('main', { username: req.cookies.accessId });
     } else {
         res.redirect('/login');
     }
