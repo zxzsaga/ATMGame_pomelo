@@ -29,7 +29,8 @@ app.configure('production|development', 'gate', function() {
     );
 });
 
-MongoClient.connect(db, appStart());
+// MongoClient.connect(db, appStart());
+appStart();
 function appStart() {
     // start app
     app.start();

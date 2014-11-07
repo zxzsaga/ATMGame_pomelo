@@ -3,12 +3,32 @@ var pomelo = window.pomelo;
 $(document).ready(function() {
     var name = getCookie('accessId');
     queryEntry(name, function(host, port) {
-        
+        pomelo.init(
+            {
+                host: host,
+                port: port,
+                log: true
+            },
+            function() {
+                var route = 'connector.entryHandler.enter';
+                pomelo.request(
+                    route,
+                    { username: username },
+                    function(data) {
+                        if (data.error) {
+                            alert(error);
+                            return;
+                        }
+                    }
+                )
+            }
+        )
     });
     $('#send-msg-btn').click(function() {
     });
 });
 
+// query connector
 function queryEntry(uid, cb) {
     var route = 'gate.gateHandler.queryEntry';
     var msg = { uid: uid };
