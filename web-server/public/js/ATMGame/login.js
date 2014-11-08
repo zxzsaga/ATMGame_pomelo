@@ -28,7 +28,7 @@ $(document).ready(function() {
                                 alert('errorCode: ' + 500);
                                 return;
                             }
-                            setCookie('accessId', data.msg.name, 3);
+                            setCookie('uid', data.uid, 1);
                             window.location.href='/';
                         }
                     );

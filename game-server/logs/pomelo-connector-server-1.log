@@ -122,3 +122,112 @@
 [2014-11-08 16:24:59.474] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 2
 [2014-11-08 16:24:59.773] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 3
 [2014-11-08 16:44:31.669] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 3
+[2014-11-08 17:15:48.201] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2014-11-08 17:15:48.884] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2014-11-08 17:15:48.886] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2014-11-08 17:15:48.887] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 455 ms
+[2014-11-08 17:16:14.465] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2014-11-08 17:16:14.470] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":2,"type":0,"compressRoute":0,"route":"account.accountHandler.register","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:16:14.473] [ERROR] pomelo - [31m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js] [39mfail to forward message:TypeError: Cannot read property 'msgRemote' of undefined
+    at doForward (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:334:39)
+    at dispatch (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:103:7)
+    at next (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:50:7)
+    at Service.beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:65:3)
+    at beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:242:8)
+    at pro.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:112:3)
+    at Component.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/server.js:74:14)
+    at handleMessage (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:295:15)
+    at null.<anonymous> (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:239:5)
+    at EventEmitter.emit (events.js:95:17)
+[2014-11-08 17:16:14.473] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 2, route: account.accountHandler.register, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:16:14.477] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2014-11-08 17:16:43.833] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 2
+[2014-11-08 17:16:43.836] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 2, msg: {"id":2,"type":0,"compressRoute":0,"route":"account.accountHandler.register","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:16:43.837] [ERROR] pomelo - [31m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js] [39mfail to forward message:TypeError: Cannot read property 'msgRemote' of undefined
+    at doForward (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:334:39)
+    at dispatch (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:103:7)
+    at next (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:50:7)
+    at Service.beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:65:3)
+    at beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:242:8)
+    at pro.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:112:3)
+    at Component.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/server.js:74:14)
+    at handleMessage (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:295:15)
+    at null.<anonymous> (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:239:5)
+    at EventEmitter.emit (events.js:95:17)
+[2014-11-08 17:16:43.837] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 2, route: account.accountHandler.register, msg: {"code":500}, receivers: [2], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:16:43.840] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 2
+[2014-11-08 17:18:09.765] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2014-11-08 17:18:10.383] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2014-11-08 17:18:10.386] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2014-11-08 17:18:10.387] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 393 ms
+[2014-11-08 17:18:22.644] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2014-11-08 17:18:22.648] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":2,"type":0,"compressRoute":0,"route":"account.accountHandler.register","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:18:22.650] [ERROR] pomelo - [31m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js] [39mfail to forward message:TypeError: Cannot read property 'msgRemote' of undefined
+    at doForward (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:334:39)
+    at dispatch (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:103:7)
+    at next (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:50:7)
+    at Service.beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:65:3)
+    at beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:242:8)
+    at pro.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:112:3)
+    at Component.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/server.js:74:14)
+    at handleMessage (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:295:15)
+    at null.<anonymous> (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:239:5)
+    at EventEmitter.emit (events.js:95:17)
+[2014-11-08 17:18:22.651] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 2, route: account.accountHandler.register, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:18:22.656] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2014-11-08 17:20:26.933] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2014-11-08 17:20:27.548] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2014-11-08 17:20:27.551] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2014-11-08 17:20:27.551] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 392 ms
+[2014-11-08 17:20:56.395] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2014-11-08 17:20:56.399] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":4,"type":0,"compressRoute":0,"route":"account.accountHandler.register","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:20:56.406] [ERROR] pomelo - [31m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js] [39mfail to forward message:TypeError: Cannot read property 'msgRemote' of undefined
+    at doForward (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:334:39)
+    at dispatch (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:103:7)
+    at next (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:50:7)
+    at Service.beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/filterService.js:65:3)
+    at beforeFilter (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:242:8)
+    at pro.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/server/server.js:112:3)
+    at Component.globalHandle (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/server.js:74:14)
+    at handleMessage (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:295:15)
+    at null.<anonymous> (/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js:239:5)
+    at EventEmitter.emit (events.js:95:17)
+[2014-11-08 17:20:56.407] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 4, route: account.accountHandler.register, msg: {"code":500}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:20:56.411] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2014-11-08 17:30:44.593] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2014-11-08 17:30:45.254] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2014-11-08 17:30:45.257] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2014-11-08 17:30:45.257] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 450 ms
+[2014-11-08 17:30:57.653] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2014-11-08 17:30:57.657] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":2,"type":0,"compressRoute":0,"route":"connector.entryHandler.register","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:30:57.835] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 2, route: connector.entryHandler.register, msg: {"code":200,"data":{"uid":"admin"}}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:30:57.840] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2014-11-08 17:30:58.010] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 2
+[2014-11-08 17:51:07.924] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 2
+[2014-11-08 17:51:18.689] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2014-11-08 17:51:19.599] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2014-11-08 17:51:19.602] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2014-11-08 17:51:19.602] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 668 ms
+[2014-11-08 17:52:21.380] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2014-11-08 17:52:21.384] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":2,"type":0,"compressRoute":0,"route":"connector.entryHandler.register","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:52:21.391] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 2, route: connector.entryHandler.register, msg: {"code":0,"data":{"uid":"admin"}}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:52:21.395] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2014-11-08 17:56:03.209] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 2
+[2014-11-08 17:56:03.212] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 2, msg: {"id":2,"type":0,"compressRoute":0,"route":"connector.entryHandler.enter","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:56:03.270] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39msession on [connector-server-1] bind with uid: admin
+[2014-11-08 17:56:03.270] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 2, route: connector.entryHandler.enter, msg: {"code":200,"msg":{"_id":"admin","pwd":"admin","registed":1415440341386}}, receivers: [2], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:56:03.273] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 2
+[2014-11-08 17:56:03.546] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 3
+[2014-11-08 17:56:46.553] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 3
+[2014-11-08 17:56:46.837] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 4
+[2014-11-08 17:59:04.094] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 4
+[2014-11-08 17:59:13.530] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39mapplication inited: "connector-server-1"
+[2014-11-08 17:59:14.696] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" enter after start...
+[2014-11-08 17:59:14.699] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" finish start
+[2014-11-08 17:59:14.699] [INFO] pomelo - [32m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/application.js] [39m"connector-server-1" startup in 900 ms
+[2014-11-08 17:59:23.491] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 1
+[2014-11-08 17:59:23.495] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] handleMessage session id: 1, msg: {"id":2,"type":0,"compressRoute":0,"route":"connector.entryHandler.enter","body":{"uid":"admin","pwd":"admin"}}
+[2014-11-08 17:59:23.502] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39msession on [connector-server-1] bind with uid: admin
+[2014-11-08 17:59:23.504] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] send message reqId: 2, route: connector.entryHandler.enter, msg: {"code":200,"uid":"admin"}, receivers: [1], opts: {"type":"response","userOptions":{},"isResponse":true}
+[2014-11-08 17:59:23.520] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/common/service/sessionService.js] [39msession on [connector-server-1] is closed with session id: 1
+[2014-11-08 17:59:23.758] [DEBUG] pomelo - [36m[/Users/xuanzhi.zhang/src/relax/ATMGame_pomelo/game-server/node_modules/pomelo/lib/components/connector.js] [39m[connector-server-1] getSession session is created with session id: 2

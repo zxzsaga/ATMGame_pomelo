@@ -71,8 +71,8 @@ function appListen() {
 // routers
 // get
 app.get('/', function(req, res) {
-    if (req.cookies.accessId) {
-        res.render('main', { username: req.cookies.accessId });
+    if (req.cookies.uid) {
+        res.render('main', { uid: req.cookies.uid });
     } else {
         res.redirect('/login');
     }

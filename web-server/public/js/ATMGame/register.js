@@ -18,17 +18,16 @@ $(document).ready(function() {
                     log: true
                 },
                 function() {
-                    var route = 'connector.entryHandler.enter';
+                    var route = 'connector.entryHandler.register';
                     pomelo.request(
                         route,
                         { uid: uid, pwd: pwd },
                         function(data) {
                             pomelo.disconnect();
-                            if (data.code === 500) {
-                                alert('errorCode: ' + 500);
+                            if (data.code !== 0) {
+                                alert('error code: ' + data.code);
                                 return;
                             }
-                            setCookie('accessId', data.msg.name, 3);
                             window.location.href='/';
                         }
                     );
@@ -50,11 +49,4 @@ function queryEntry(uid, cb) {
             cb(data.host, data.port);
         });
     });
-}
-
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
 }

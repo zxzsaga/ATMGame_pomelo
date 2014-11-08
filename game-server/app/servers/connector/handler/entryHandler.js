@@ -6,14 +6,40 @@ var Handler = function(app) {
   this.app = app;
 };
 
+Handler.prototype.register = function(msg, session, next) {
+    var uid = msg.uid;
+    var pwd = msg.pwd;
+    if (uid === '' || pwd === '') {
+        var err = new Error('Invalid param');
+        next(err, { code: 0, data: err });
+        return;
+    }
+
+    var nowTime = Date.now();
+
+    var doc = {
+        _id: uid,
+        pwd: pwd,
+        registed: nowTime
+    };
+
+    ATMGame.UserDAO.addOne(doc, function(err, insertedDoc) {
+        if (err) {
+            next(err, { code: 10000 });
+            return;
+        }
+        next(null, { code: 0, data: { uid: insertedDoc._id } });
+    });
+};
+
 Handler.prototype.enter = function(msg, session, next) {
     var self = this;
     var uid = msg.uid;
     var pwd = msg.pwd;
 
     var condition = {
-        name: uid,
-        password: pwd
+        _id: uid,
+        pwd: pwd
     };
 
     ATMGame.UserDAO.findOne(condition, function(err, foundDoc) {
@@ -34,7 +60,7 @@ Handler.prototype.enter = function(msg, session, next) {
         session.on('closed', onUserLeave.bind(null, self.app));
 
         var rid = 1;
-        next(null, { code: 200, msg: foundDoc });
+        next(null, { code: 200, uid: foundDoc._id });
         /*
         //put user into channel
         self.app.rpc.chat.chatRemote.add(session, uid, self.app.get('serverId'), rid, true, function(users){
