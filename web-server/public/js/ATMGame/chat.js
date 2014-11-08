@@ -1,16 +1,16 @@
 var pomelo = window.pomelo;
 
 $(document).ready(function() {
-    var name = getCookie('accessId');
+    var uid = getCookie('uid');
     queryEntry(name, function(host, port) {
         pomelo.init(
             {
                 host: host,
                 port: port,
                 log: true
-            },
+            }/*,
             function() {
-                var route = 'connector.entryHandler.enter';
+                var route = 'chat.chatHandler.';
                 pomelo.request(
                     route,
                     { username: username },
@@ -21,10 +21,15 @@ $(document).ready(function() {
                         }
                     }
                 )
-            }
+            }*/
         )
     });
     $('#send-msg-btn').click(function() {
+        var route = 'chat.chatHandler.send';
+        var msg = $('#chat-msg').val();
+        pomelo.request(route, msg, function(data) {
+            $('#chat-frame').append(data.msg);
+        });
     });
 });
 

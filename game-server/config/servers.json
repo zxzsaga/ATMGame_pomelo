@@ -10,13 +10,20 @@
             }
         ],
         "gate": [
-	    {
+            {
                 "id": "gate-server-1",
                 "host": "127.0.0.1",
                 "clientPort": 3014,
                 "frontend": true
             }
-	]
+        ],
+        "chat": [
+            {
+                "id": "chat-server-1",
+                "host": "127.0.0.1",
+                "port": 6050
+            }
+        ]
     },
     "production": {
         "connector": [
@@ -29,12 +36,19 @@
             }
         ],
         "gate": [
-	    {
+            {
                 "id": "gate-server-1",
                 "host": "127.0.0.1",
                 "clientPort": 3014,
                 "frontend": true
             }
-	]
+        ],
+        "chat": [
+            {
+                "id": "chat-server-1",
+                "host": "127.0.0.1",
+                "port": 6050
+            }
+        ]
     }
 }

@@ -19,6 +19,10 @@ var handler = Handler.prototype;
  *
  */
 handler.send = function(msg, session, next) {
+    console.log(msg);
+    console.log('--------------');
+    next(null, { msg: msg });
+    /*
 	var rid = session.get('rid');
 	var username = session.uid.split('*')[0];
 	var channelService = this.app.get('channelService');
@@ -45,4 +49,5 @@ handler.send = function(msg, session, next) {
 	next(null, {
 		route: msg.route
 	});
+	*/
 };
