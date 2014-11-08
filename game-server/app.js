@@ -1,6 +1,9 @@
 var pomelo = require('pomelo');
 var app = pomelo.createApp();
 
+var fs = require('fs');
+var util = require('util');
+
 var _ = require('underscore');
 var MongoClient = require('mongodb').MongoClient;
 
@@ -29,8 +32,29 @@ app.configure('production|development', 'gate', function() {
     );
 });
 
-// MongoClient.connect(db, appStart());
-appStart();
+// set modules global
+global.util = util;
+global._ = _;
+global.ATMGame = {};
+
+// read configs
+var mongoConfig = JSON.parse(fs.readFileSync('../shared/config/mongoConfig.json', 'utf8'));
+
+MongoClient.connect(mongoConfig.ATMGame.db, function(err, db) {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    ATMGame.mongodb = db;
+
+    // load mongodb base dao
+    ATMGame.MongoBaseDAO = require('../shared/dao/MongoBaseDAO.js');
+
+    // load mongodb other dao
+    var UserDAO = require('../shared/dao/UserDAO.js');
+    ATMGame.UserDAO = new UserDAO();
+    appStart();
+});
 function appStart() {
     // start app
     app.start();

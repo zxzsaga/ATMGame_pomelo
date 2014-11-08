@@ -16,11 +16,10 @@ var handler = Handler.prototype;
  * @param {Function} next next stemp callback
  *
  */
-handler.queryEntry = function(msg, session, next) {
-	var uid = msg.uid;
+handler.queryEntry = function(uid, session, next) {
 	if(!uid) {
 		next(null, {
-			code: 500
+			code: 1001
 		});
 		return;
 	}

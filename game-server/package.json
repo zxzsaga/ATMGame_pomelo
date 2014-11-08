@@ -1,9 +1,9 @@
 {
-    "name":"ATMGame_pomelo",
-    "version":"0.0.1",
-    "private":false,
-    "dependencies":{
-        "pomelo":"1.1.1"
-    }
+  "name": "ATMGame_pomelo",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "pomelo": "1.1.1",
+    "underscore": "~1.7.0"
+  }
 }
-
