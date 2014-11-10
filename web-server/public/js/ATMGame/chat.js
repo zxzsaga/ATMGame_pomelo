@@ -2,13 +2,15 @@ var pomelo = window.pomelo;
 
 $(document).ready(function() {
     var uid = getCookie('uid');
+    $('.uid').text(uid);
+    /*
     queryEntry(name, function(host, port) {
         pomelo.init(
             {
                 host: host,
                 port: port,
                 log: true
-            }/*,
+            },
             function() {
                 var route = 'chat.chatHandler.';
                 pomelo.request(
@@ -21,7 +23,7 @@ $(document).ready(function() {
                         }
                     }
                 )
-            }*/
+            }
         )
     });
     $('#send-msg-btn').click(function() {
@@ -31,6 +33,7 @@ $(document).ready(function() {
             $('#chat-frame').append(data.msg);
         });
     });
+    */
 });
 
 // query connector

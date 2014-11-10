@@ -3,32 +3,38 @@ var pomelo = window.pomelo;
 var pomeloGateConfig = {
     host: window.location.hostname,
     port: 3014,
-    log: true
+    log: false
 };
 
 $(document).ready(function() {
     $('#login-btn').click(function() {
         var uid = $('#usr').val();
         var pwd = $('#pwd').val();
-        queryEntry(uid, function(host, port) {
+
+        var loginInfo = {
+            uid: uid,
+            pwd: pwd
+        };
+
+        authAndQueryEntry(loginInfo, function(host, port) {
             pomelo.init(
                 {
                     host: host,
                     port: port,
-                    log: true
+                    log: false
                 },
                 function() {
                     var route = 'connector.entryHandler.enter';
                     pomelo.request(
                         route,
-                        { uid: uid, pwd: pwd },
+                        uid ,
                         function(data) {
                             pomelo.disconnect();
                             if (data.code === 500) {
                                 alert('errorCode: ' + 500);
                                 return;
                             }
-                            setCookie('uid', data.uid, 1);
+                            setCookie('uid', data.uid, 24 * 3600 * 1000);
                             window.location.href='/';
                         }
                     );
@@ -38,23 +44,16 @@ $(document).ready(function() {
     });
 });
 
-function queryEntry(uid, cb) {
+function authAndQueryEntry(loginInfo, cb) {
     pomelo.init(pomeloGateConfig, function() {
-        var route = 'gate.gateHandler.queryEntry';
-        pomelo.request(route, { uid: uid }, function(data) {
+        var route = 'gate.gateHandler.authAndQueryEntry';
+        pomelo.request(route, loginInfo, function(resp) {
             pomelo.disconnect();
-            if (data.code !== 200) {
-                alert('errorCode: ' + data.code);
+            if (resp.code !== 0) {
+                alert('errorCode: ' + resp.code);
                 return;
             }
-            cb(data.host, data.port);
+            cb(resp.host, resp.port);
         });
     });
-}
-
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
 }

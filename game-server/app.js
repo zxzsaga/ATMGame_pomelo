@@ -32,6 +32,17 @@ app.configure('production|development', 'gate', function() {
     );
 });
 
+app.configure('production|development', 'chat', function() {
+    app.set(
+        'connectorConfig',
+        {
+            connector: pomelo.connectors.hybridconnector,
+            useProtobuf: true
+        }
+    );
+});
+
+
 // set modules global
 global.util = util;
 global._ = _;
