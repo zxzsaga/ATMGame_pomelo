@@ -1,2 +1,2 @@
-game-server/logs/*
-.idea/*
+game-server/logs/
+.idea/

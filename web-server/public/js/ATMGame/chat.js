@@ -1,15 +1,6 @@
 var pomelo = window.pomelo;
 
 $(document).ready(function() {
-    var uid = getCookie('uid');
-
-    pomelo.request(
-        'connector.chatHandler.enter',
-        uid,
-        function(resp) {
-            console.log(resp);
-        }
-    );
     /*
     queryEntry(name, function(host, port) {
         pomelo.init(

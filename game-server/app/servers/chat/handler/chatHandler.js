@@ -9,27 +9,6 @@ var Handler = function(app) {
 };
 
 /**
- * Enter chat
- *
- *
- */
-Handler.prototype.enter = function (uid, session, next) {
-    var self = this;
-    var sessionService = self.app.get('sessionService');
-
-
-    console.log('sessionService');
-    console.log('++++++++++++++++');
-
-    var rid = 1;
-    //put user into channel
-    self.app.rpc.chat.chatRemote.add(session, uid, self.app.get('serverId'), rid, true, function(users) {
-        next(null, { code: ATMGame.code.OK, users: users });
-    });
-}
-
-
-/**
  * Send messages to users
  *
  * @param {Object} msg message from client

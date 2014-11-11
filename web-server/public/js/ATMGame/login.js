@@ -36,6 +36,7 @@ $(document).ready(function() {
                             var oneDay = 24 * 60 * 60 * 1000;
                             setCookie('uid', uid, oneDay);
                             setCookie('username', username, oneDay);
+                            sessionStorage.setItem('users', resp.users);
                             window.location.href='/';
                         }
                     );

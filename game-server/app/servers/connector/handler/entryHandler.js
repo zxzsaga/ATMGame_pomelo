@@ -19,7 +19,11 @@ Handler.prototype.enter = function(uid, session, next) {
     session.bind(uid);
     session.on('closed', onUserLeave.bind(null, self.app));
 
-    next(null, { code: ATMGame.code.OK });
+    var rid = 1;
+    //put user into channel
+    self.app.rpc.chat.chatRemote.add(session, uid, self.app.get('serverId'), rid, true, function(users) {
+        next(null, { code: ATMGame.code.OK, users: users });
+    });
 };
 
 var onUserLeave = function(app, session) {
