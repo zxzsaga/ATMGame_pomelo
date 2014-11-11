@@ -50,6 +50,7 @@ global.ATMGame = {};
 
 // read configs
 var mongoConfig = JSON.parse(fs.readFileSync('../shared/config/mongoConfig.json', 'utf8'));
+ATMGame.code    = JSON.parse(fs.readFileSync('../shared/config/code.json', 'utf8'));
 
 MongoClient.connect(mongoConfig.ATMGame.db, function(err, db) {
     if (err) {

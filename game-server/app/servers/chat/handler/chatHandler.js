@@ -5,10 +5,29 @@ module.exports = function(app) {
 };
 
 var Handler = function(app) {
-	this.app = app;
+    this.app = app;
 };
 
-var handler = Handler.prototype;
+/**
+ * Enter chat
+ *
+ *
+ */
+Handler.prototype.enter = function (uid, session, next) {
+    var self = this;
+    var sessionService = self.app.get('sessionService');
+
+
+    console.log('sessionService');
+    console.log('++++++++++++++++');
+
+    var rid = 1;
+    //put user into channel
+    self.app.rpc.chat.chatRemote.add(session, uid, self.app.get('serverId'), rid, true, function(users) {
+        next(null, { code: ATMGame.code.OK, users: users });
+    });
+}
+
 
 /**
  * Send messages to users
@@ -18,7 +37,7 @@ var handler = Handler.prototype;
  * @param  {Function} next next stemp callback
  *
  */
-handler.send = function(msg, session, next) {
+Handler.prototype.send = function(msg, session, next) {
     console.log(msg);
     console.log('--------------');
     next(null, { msg: msg });

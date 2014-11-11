@@ -1,0 +1,10 @@
+{
+    "OK": 0,
+
+    "MONGODB_ERROR": 1000,
+
+    "INVALID_PARAM": 2000,
+    "DUPLICATE_LOGIN": 2001,
+
+    "NO_CONNECTOR_SERVER": 3000
+}

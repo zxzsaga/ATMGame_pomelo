@@ -12,8 +12,8 @@ function getCookie(cookieName) {
     var name = cookieName + '=';
     var cookieArr = document.cookie.split(';');
     for (var i = 0, length = cookieArr.length; i < length; i++) {
-        var theCookie =cookieArr[i];
-        while (theCookie(0) === ' ') {
+        var theCookie = cookieArr[i];
+        while (theCookie[0] === ' ') {
             theCookie = theCookie.substring(1);
         }
         if (theCookie.indexOf(name) != -1) {

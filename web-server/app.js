@@ -78,70 +78,10 @@ app.get('/', function(req, res) {
     }
 });
 
-app.get('/index', function(req, res) {
-    res.render('index');
-});
-
 app.get('/login', function(req, res) {
     res.render('login');
 });
 
 app.get('/register', function(req, res) {
     res.render('register');
-});
-
-// post
-app.post('/login', function(req, res) {
-    var username = req.param('username');
-    var password = req.param('password');
-    if (username === '') {
-        req.render('login', { error: 'Please input username' });
-        return;
-    }
-    if (password === '') {
-        res.render('login', { error: 'Please input password' });
-        return;
-    }
-    var condition = {
-        name: username,
-        password: password
-    };
-    ATMGame.UserDAO.findOne(condition, function(err, foundDoc) {
-        if (err) {
-            res.render('login', { error: err });
-            return;
-        }
-        if (foundDoc === null) {
-            res.render('login', { error: 'Username or password incorrect' });
-            return;
-        }
-        res.cookie('accessId', foundDoc.name, { maxAge: 86400000 });
-        res.redirect('/');
-    });
-});
-
-app.post('/register', function(req, res) {
-    var username = req.param('username');
-    var password = req.param('password');
-    if (username === '') {
-        req.render('login', { error: 'Please input username' });
-        return;
-    }
-    if (password === '') {
-        res.render('login', { error: 'Please input password' });
-        return;
-    }
-    var nowTime = Date.now()
-    var doc = {
-        name: username,
-        password: password,
-        registerAt: nowTime
-    };
-    ATMGame.UserDAO.addOne(doc, function(err, insertedDoc) {
-        if (err) {
-            res.render('register', { error: err });
-            return;
-        }
-        res.redirect('/');
-    });
 });

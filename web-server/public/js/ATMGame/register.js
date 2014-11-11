@@ -18,8 +18,8 @@ $(document).ready(function() {
             var route = 'gate.gateHandler.register';
             pomelo.request(route, registerInfo, function(resp) {
                 pomelo.disconnect();
-                if (data.code !== 0) {
-                    alert('Error: ' + data.error);
+                if (resp.code !== ATMGame.code.OK) {
+                    alert('Error: ' + resp.error);
                     return;
                 }
                 window.location.href='/';

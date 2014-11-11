@@ -1,10 +1,10 @@
 module.exports = function(app) {
-	return new ChatRemote(app);
+    return new ChatRemote(app);
 };
 
 var ChatRemote = function(app) {
-	this.app = app;
-	this.channelService = app.get('channelService');
+    this.app = app;
+    this.channelService = app.get('channelService');
 };
 
 /**
@@ -17,19 +17,19 @@ var ChatRemote = function(app) {
  *
  */
 ChatRemote.prototype.add = function(uid, sid, name, flag, cb) {
-	var channel = this.channelService.getChannel(name, flag);
-	var username = uid.split('*')[0];
-	var param = {
-		route: 'onAdd',
-		user: username
-	};
-	channel.pushMessage(param);
+    var channel = this.channelService.getChannel(name, flag);
+    var username = uid;
+    var param = {
+	route: 'onAdd',
+	user: username
+    };
+    channel.pushMessage(param);
 
-	if( !! channel) {
-		channel.add(uid, sid);
-	}
+    if( !! channel) {
+	channel.add(uid, sid);
+    }
 
-	cb(this.get(name, flag));
+    cb(this.get(name, flag));
 };
 
 /**
@@ -42,15 +42,15 @@ ChatRemote.prototype.add = function(uid, sid, name, flag, cb) {
  *
  */
 ChatRemote.prototype.get = function(name, flag) {
-	var users = [];
-	var channel = this.channelService.getChannel(name, flag);
-	if( !! channel) {
-		users = channel.getMembers();
-	}
-	for(var i = 0; i < users.length; i++) {
-		users[i] = users[i].split('*')[0];
-	}
-	return users;
+    var users = [];
+    var channel = this.channelService.getChannel(name, flag);
+    if( !! channel) {
+	users = channel.getMembers();
+    }
+    for(var i = 0; i < users.length; i++) {
+	users[i] = users[i];
+    }
+    return users;
 };
 
 /**
@@ -62,15 +62,15 @@ ChatRemote.prototype.get = function(name, flag) {
  *
  */
 ChatRemote.prototype.kick = function(uid, sid, name) {
-	var channel = this.channelService.getChannel(name, false);
-	// leave channel
-	if( !! channel) {
-		channel.leave(uid, sid);
-	}
-	var username = uid.split('*')[0];
-	var param = {
-		route: 'onLeave',
-		user: username
-	};
-	channel.pushMessage(param);
+    var channel = this.channelService.getChannel(name, false);
+    // leave channel
+    if( !! channel) {
+	channel.leave(uid, sid);
+    }
+    var username = uid;
+    var param = {
+	route: 'onLeave',
+	user: username
+    };
+    channel.pushMessage(param);
 };

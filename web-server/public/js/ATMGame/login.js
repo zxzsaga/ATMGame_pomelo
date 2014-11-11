@@ -8,33 +8,34 @@ var pomeloGateConfig = {
 
 $(document).ready(function() {
     $('#login-btn').click(function() {
-        var uid = $('#usr').val();
-        var pwd = $('#pwd').val();
-
+        var username = $('#username').val();
+        var password = $('#password').val();
         var loginInfo = {
-            uid: uid,
-            pwd: pwd
+            username: username,
+            password: password
         };
-
-        authAndQueryEntry(loginInfo, function(host, port) {
+        authAndQueryEntry(loginInfo, function(host, port, uid, username) {
             pomelo.init(
                 {
                     host: host,
                     port: port,
                     log: false
                 },
+                // 与 connector 建立连接
                 function() {
                     var route = 'connector.entryHandler.enter';
                     pomelo.request(
                         route,
-                        uid ,
-                        function(data) {
-                            pomelo.disconnect();
-                            if (data.code === 500) {
-                                alert('errorCode: ' + 500);
+                        uid,
+                        function(resp) {
+                            if (resp.code !== ATMGame.code.OK) {
+                                pomelo.disconnect();
+                                alert('error: ' + resp.error);
                                 return;
                             }
-                            setCookie('uid', data.uid, 24 * 3600 * 1000);
+                            var oneDay = 24 * 60 * 60 * 1000;
+                            setCookie('uid', uid, oneDay);
+                            setCookie('username', username, oneDay);
                             window.location.href='/';
                         }
                     );
@@ -44,16 +45,17 @@ $(document).ready(function() {
     });
 });
 
+// 验证用户名和密码, 获取 connector 的 host 和 port
 function authAndQueryEntry(loginInfo, cb) {
     pomelo.init(pomeloGateConfig, function() {
         var route = 'gate.gateHandler.authAndQueryEntry';
         pomelo.request(route, loginInfo, function(resp) {
             pomelo.disconnect();
-            if (resp.code !== 0) {
-                alert('errorCode: ' + resp.code);
+            if (resp.code !== ATMGame.code.OK) {
+                alert('error: ' + resp.error);
                 return;
             }
-            cb(resp.host, resp.port);
+            cb(resp.host, resp.port, resp.uid, resp.username);
         });
     });
 }

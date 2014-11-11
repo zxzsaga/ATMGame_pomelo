@@ -5,4 +5,16 @@ var UserDAO = function() {
 };
 util.inherits(UserDAO, ATMGame.MongoBaseDAO);
 
+UserDAO.prototype.findMaxId = function(cb) {
+    var condition = {};
+    var field = { _id: 1 }
+    this.collection.find(condition, field).sort({ _id: -1 }).limit(1, function(err, foundDoc) {
+        if (err) {
+            cb(err);
+            return;
+        }
+        cb(null, foundDoc._id);
+    });
+}
+
 module.exports = UserDAO;
