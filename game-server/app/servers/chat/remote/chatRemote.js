@@ -18,14 +18,9 @@ var ChatRemote = function(app) {
  */
 ChatRemote.prototype.add = function(uid, sid, name, flag, cb) {
     var channel = this.channelService.getChannel(name, flag);
-    var username = uid;
-    var param = {
-	route: 'onAdd',
-	user: username
-    };
-    channel.pushMessage(param);
+    channel.pushMessage('join', uid + ' join room ~');
 
-    if( !! channel) {
+    if (!!channel) {
 	channel.add(uid, sid);
     }
 
@@ -44,11 +39,8 @@ ChatRemote.prototype.add = function(uid, sid, name, flag, cb) {
 ChatRemote.prototype.get = function(name, flag) {
     var users = [];
     var channel = this.channelService.getChannel(name, flag);
-    if( !! channel) {
+    if (!!channel) {
 	users = channel.getMembers();
-    }
-    for(var i = 0; i < users.length; i++) {
-	users[i] = users[i];
     }
     return users;
 };

@@ -56,8 +56,7 @@ Handler.prototype.authAndQueryEntry = function(loginInfo, session, next) {
 	        code: 0,
 	        host: res.host,
 	        port: res.clientPort,
-                uid: foundDoc._id,
-                username: foundDoc.username
+                uid: foundDoc._id
             }
         );
     });

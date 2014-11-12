@@ -32,3 +32,23 @@ $ pomelo kill
 - pid：服务器对应的进程pid。
 - headUsed：该服务器已经使用的堆大小（单位：兆）。
 - uptime：该服务器启动时长（单位：分钟）。
+
+** 文件结构
+#+begin_src
+game-server
+    app
+    config
+    logs
+    app.js
+shared
+    config
+        code.json           错误码
+        mongoConfig.json    MongoDB 配置
+    dao
+web-server
+    app
+    bin
+    public
+    views
+    app.js
+#+end_src

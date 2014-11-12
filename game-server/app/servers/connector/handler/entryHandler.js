@@ -16,11 +16,17 @@ Handler.prototype.enter = function(uid, session, next) {
         return;
     }
 
+    var rid = 'global';
+
     session.bind(uid);
+    session.set('rid', rid);
+    session.push('rid', function(err) {
+	if (err) {
+	    console.error('set rid for session service failed! error is : %j', err.stack);
+	}
+    });
     session.on('closed', onUserLeave.bind(null, self.app));
 
-    var rid = 1;
-    //put user into channel
     self.app.rpc.chat.chatRemote.add(session, uid, self.app.get('serverId'), rid, true, function(users) {
         next(null, { code: ATMGame.code.OK, users: users });
     });

@@ -1,5 +1,3 @@
-var pomelo = window.pomelo;
-
 var pomeloGateConfig = {
     host: window.location.hostname,
     port: 3014,
@@ -14,34 +12,12 @@ $(document).ready(function() {
             username: username,
             password: password
         };
-        authAndQueryEntry(loginInfo, function(host, port, uid, username) {
-            pomelo.init(
-                {
-                    host: host,
-                    port: port,
-                    log: false
-                },
-                // 与 connector 建立连接
-                function() {
-                    var route = 'connector.entryHandler.enter';
-                    pomelo.request(
-                        route,
-                        uid,
-                        function(resp) {
-                            if (resp.code !== ATMGame.code.OK) {
-                                pomelo.disconnect();
-                                alert('error: ' + resp.error);
-                                return;
-                            }
-                            var oneDay = 24 * 60 * 60 * 1000;
-                            setCookie('uid', uid, oneDay);
-                            setCookie('username', username, oneDay);
-                            sessionStorage.setItem('users', resp.users);
-                            window.location.href='/';
-                        }
-                    );
-                }
-            );
+        authAndQueryEntry(loginInfo, function(host, port, uid) {
+            var oneDay = 24 * 60 * 60 * 1000;
+            setCookie('uid', uid, oneDay);
+            sessionStorage.setItem('host', host);
+            sessionStorage.setItem('port', port);
+            window.location.href='/';
         });
     });
 });
@@ -56,7 +32,7 @@ function authAndQueryEntry(loginInfo, cb) {
                 alert('error: ' + resp.error);
                 return;
             }
-            cb(resp.host, resp.port, resp.uid, resp.username);
+            cb(resp.host, resp.port, resp.uid);
         });
     });
 }

@@ -1,35 +1,32 @@
 var pomelo = window.pomelo;
 
 $(document).ready(function() {
-    /*
-    queryEntry(name, function(host, port) {
-        pomelo.init(
-            {
-                host: host,
-                port: port,
-                log: true
-            },
-            function() {
-                var route = 'chat.chatHandler.';
-                pomelo.request(
-                    route,
-                    { username: username },
-                    function(data) {
-                        if (data.error) {
-                            alert(error);
-                            return;
-                        }
-                    }
-                )
-            }
-        )
-    });
+    var username = getCookie('username');
+    var uid = getCookie('uid');
     $('#send-msg-btn').click(function() {
+        content = $('#chat-msg').val();
         var route = 'chat.chatHandler.send';
-        var msg = $('#chat-msg').val();
+        var msg = {
+            content: content,
+            from: username,
+            target: '*'
+        };
         pomelo.request(route, msg, function(data) {
-            $('#chat-frame').append(data.msg);
+            console.log(data);
         });
     });
-    */
+
+    pomelo.on('join', function(data) {
+        $('#chat-frame').append(data);
+    });
+
+    pomelo.on('onChat', function(data) {
+        $('#chat-frame').append(data.msg);
+        /*
+	addMessage(data.from, data.target, data.msg);
+	$("#chatHistory").show();
+	if(data.from !== username)
+	tip('message', data.from);
+        */
+    });
 });
