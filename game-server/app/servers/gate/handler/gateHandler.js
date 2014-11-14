@@ -53,10 +53,11 @@ Handler.prototype.authAndQueryEntry = function(loginInfo, session, next) {
         next(
             null,
             {
-	        code: 0,
+	        code: ATMGame.code.OK,
 	        host: res.host,
 	        port: res.clientPort,
-                uid: foundDoc._id
+                uid: foundDoc._id,
+                username: foundDoc.username
             }
         );
     });

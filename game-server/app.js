@@ -9,7 +9,7 @@ app.set('name', 'ATMGame');
 
 app.configure('production|development', function() {
     app.loadConfig('mongoConfig', app.getBase() + '/../shared/config/mongoConfig.json');
-    app.loadConfig('code', app.getBase() + '/../shared/config/code.json');
+    // app.loadConfig('code', app.getBase() + '/../shared/config/code.json');
 });
 
 // app configuration
@@ -50,7 +50,7 @@ global.util = util;
 global._ = _;
 global.ATMGame = {};
 
-ATMGame.code = app.get('code');
+ATMGame.code = require('../shared/config/code.json');
 
 appStart(app.get('mongoConfig').ATMGame);
 

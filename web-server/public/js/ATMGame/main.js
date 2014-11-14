@@ -1,8 +1,12 @@
 $(document).ready(function() {
-    var username = getCookie('username');
-    var uid = getCookie('uid');
     var host = sessionStorage.getItem('host');
     var port = sessionStorage.getItem('port');
+    if (!host || !port) {
+        window.location.href = '/login';
+    }
+
+    var username = getCookie('username');
+    var uid = getCookie('uid');
     $('.username').text(username);
 
     pomelo.init(

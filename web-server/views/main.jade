@@ -11,7 +11,8 @@ block body
         h1.username
         .row
           .col-lg-12
-            pre#chat-frame(style='text-align: left; height: 400px')
+            .panel.panel-default(style='text-align: left; height: 400px; overflow: auto')
+              .panel-body#chat-frame
             form.form-inline(role='form')
               .form-group
                 input#chat-msg.form-control(type='text', placeholder='说点什么吧 ~')

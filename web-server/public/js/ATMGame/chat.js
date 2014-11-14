@@ -1,5 +1,3 @@
-var pomelo = window.pomelo;
-
 $(document).ready(function() {
     var username = getCookie('username');
     var uid = getCookie('uid');
@@ -21,12 +19,12 @@ $(document).ready(function() {
     });
 
     pomelo.on('onChat', function(data) {
-        $('#chat-frame').append(data.msg);
-        /*
-	addMessage(data.from, data.target, data.msg);
-	$("#chatHistory").show();
-	if(data.from !== username)
-	tip('message', data.from);
-        */
+        console.log(data);
+        appendMsgToChatFrame(data.from, data.msg);
     });
 });
+
+function appendMsgToChatFrame(from, msg) {
+    var content = from + ': ' + msg;
+    $('#chat-frame').append(content).append('<br>');
+}

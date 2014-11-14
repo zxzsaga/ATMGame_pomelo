@@ -1,11 +1,3 @@
-// Node.js modules
-var fs = require('fs');
-var util = require('util');
-
-// third part modules
-var _ = require('underscore');
-var MongoClient = require('mongodb').MongoClient;
-
 // express relative
 var express = require('express');
 var methodOverride = require('method-override');
@@ -31,57 +23,34 @@ if (env === 'production') {
     var oneYear = 31557600000;
     app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
     app.use(errorHandler());
+
+    app.set('webConfig', require('./config/webConfig.json').production);
 } else if (env === 'development') {
     app.use(express.static(__dirname + '/public'));
-    app.use(errorHandler({ dumpExceptions: true, showStack: true })); 
+    app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+
+    app.set('webConfig', require('./config/webConfig.json').development);
 } else {
     throw new Error('Unrecognized Environment');
 }
 
-// set modules global
-global.util = util;
-global._ = _;
-global.ATMGame = {};
-
-// read configs
-var webConfig   = JSON.parse(fs.readFileSync('../shared/config/webConfig.json', 'utf8'));
-var mongoConfig = JSON.parse(fs.readFileSync('../shared/config/mongoConfig.json', 'utf8'));
-
-MongoClient.connect(mongoConfig.ATMGame.db, function(err, db) {
-    if (err) {
-        console.error(err);
-        return;
-    }
-    ATMGame.mongodb = db;
-
-    // load mongodb base dao
-    ATMGame.MongoBaseDAO = require('../shared/dao/MongoBaseDAO.js');
-    
-    // load mongodb other dao
-    var UserDAO = require('../shared/dao/UserDAO.js');
-    ATMGame.UserDAO = new UserDAO();
-    appListen();
-});
-
-function appListen() {
-    console.log('Web server has started.\nPlease log on http://' + webConfig.ip + ':' + webConfig.port);
-    app.listen(webConfig.port);
-}
+var webConfig = app.get('webConfig');
+console.log('Web server has started.\nPlease log on http://' + webConfig.host + ':' + webConfig.port);
+app.listen(webConfig.port);
 
 // routers
-// get
+app.get('/login', function(req, res) {
+    res.render('login');
+});
+app.get('/register', function(req, res) {
+    res.render('register');
+});
 app.get('/', function(req, res) {
     if (req.cookies.uid) {
-        res.render('main', { uid: req.cookies.uid });
+        res.render('main');
     } else {
         res.redirect('/login');
     }
 });
 
-app.get('/login', function(req, res) {
-    res.render('login');
-});
 
-app.get('/register', function(req, res) {
-    res.render('register');
-});

@@ -1,9 +1,7 @@
-var pomelo = window.pomelo;
-
 var pomeloGateConfig = {
     host: window.location.hostname,
     port: 3014,
-    log: true
+    log: false
 };
 
 $(document).ready(function() {
@@ -16,10 +14,10 @@ $(document).ready(function() {
         };
         pomelo.init(pomeloGateConfig, function() {
             var route = 'gate.gateHandler.register';
-            pomelo.request(route, registerInfo, function(resp) {
+            pomelo.request(route, registerInfo, function(res) {
                 pomelo.disconnect();
-                if (resp.code !== ATMGame.code.OK) {
-                    alert('Error: ' + resp.error);
+                if (res.code !== ATMGame.code.OK) {
+                    alert('Error: ' + res.error);
                     return;
                 }
                 window.location.href='/';

@@ -12,9 +12,10 @@ $(document).ready(function() {
             username: username,
             password: password
         };
-        authAndQueryEntry(loginInfo, function(host, port, uid) {
+        authAndQueryEntry(loginInfo, function(host, port, uid, username) {
             var oneDay = 24 * 60 * 60 * 1000;
             setCookie('uid', uid, oneDay);
+            setCookie('username', username, oneDay);
             sessionStorage.setItem('host', host);
             sessionStorage.setItem('port', port);
             window.location.href='/';
@@ -26,13 +27,13 @@ $(document).ready(function() {
 function authAndQueryEntry(loginInfo, cb) {
     pomelo.init(pomeloGateConfig, function() {
         var route = 'gate.gateHandler.authAndQueryEntry';
-        pomelo.request(route, loginInfo, function(resp) {
+        pomelo.request(route, loginInfo, function(res) {
             pomelo.disconnect();
-            if (resp.code !== ATMGame.code.OK) {
-                alert('error: ' + resp.error);
+            if (res.code !== ATMGame.code.OK) {
+                alert('error: ' + res.error);
                 return;
             }
-            cb(resp.host, resp.port, resp.uid);
+            cb(res.host, res.port, res.uid, res.username);
         });
     });
 }

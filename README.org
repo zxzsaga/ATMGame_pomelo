@@ -52,3 +52,5 @@ web-server
     views
     app.js
 #+end_src
+* TODO
+web-server/public/js/login.js & register.js 中的 pomeloGateConfig 暂时是写死的，应改为读取配置文件
