@@ -10,7 +10,7 @@ $(document).ready(function() {
             target: '*'
         };
         pomelo.request(route, msg, function(data) {
-            console.log(data);
+            // console.log(data);
         });
     });
 
@@ -19,12 +19,12 @@ $(document).ready(function() {
     });
 
     pomelo.on('onChat', function(data) {
-        console.log(data);
         appendMsgToChatFrame(data.from, data.msg);
     });
 });
 
 function appendMsgToChatFrame(from, msg) {
     var content = from + ': ' + msg;
-    $('#chat-frame').append(content).append('<br>');
+    $('#chat-frame').append($('<p></p>').append(content));
+    $("#chat-panel").scrollTop($('#chat-frame').height());
 }
